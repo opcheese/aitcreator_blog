@@ -132,3 +132,9 @@ menu:
 #         guessSyntax: true
 #         lineNos: true
 #         style: monokai
+
+outputs:
+    home:
+        - HTML
+        - RSS
+        - JSON # is necessary
