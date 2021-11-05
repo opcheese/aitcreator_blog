@@ -12,7 +12,9 @@ draft: false
 hidemeta: false
 comments: false
 description: "Desc Text."
-
+outputs:
+    - html
+    - json
 disableHLJS: true # to disable highlightjs
 disableShare: false
 disableHLJS: false
@@ -29,3 +31,4 @@ cover:
     hidden: true # only hide on current single page
 
 ---
+asdfasdfasdf
