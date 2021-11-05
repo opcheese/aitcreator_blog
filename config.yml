@@ -1,7 +1,7 @@
 baseURL: "https://ludentes.ru/"
 title: AiCreator
 paginate: 5
-theme: PaperMod
+theme: PaperModLocal
 
 enableRobotsTXT: true
 buildDrafts: false
