@@ -1,5 +1,5 @@
 baseURL: "https://ludentes.ru/"
-title: AiCreator
+title: Closing the Tabs
 paginate: 5
 theme: PaperModLocal
 
@@ -16,8 +16,8 @@ minify:
 
 params:
     env: production # to enable google analytics, opengraph, twitter-cards and schema.
-    title: AiCreator
-    description: "AiCreator description"
+    title:  Closing the Tabs
+    description: "Blog about helpful AI"
     keywords: [Blog, Portfolio, PaperMod]
     author: Me
     # author: ["Me", "You"] # multiple authors
@@ -33,7 +33,9 @@ params:
     ShowCodeCopyButtons: false
     disableSpecial1stPost: false
     disableScrollToTop: false
-    comments: false
+    comments: true
+    
+    disqusShortname: ludentes-ru-1
     hidemeta: false
     hideSummary: false
     showtoc: false
@@ -69,9 +71,9 @@ params:
     #           url: tags
 
     # home-info mode
-    homeInfoParams:
-        Title: "Hi there \U0001F44B"
-        Content: Welcome to my blog
+    # homeInfoParams:
+    #     Title: "Hi there \U0001F44B"
+    #     Content: Welcome to my blog
 
     # socialIcons:
     #     - name: twitter
