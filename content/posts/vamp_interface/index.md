@@ -6,7 +6,7 @@ tags:
     - AI tools
 author: Me
 draft: false
-description: Using neurons and spotting patterns
+description: Using Stylegan2 generated faces to visualize data
 outputs:
     - html
     - json
@@ -30,25 +30,25 @@ slug: vamp-interface
 > Watts, Peter. Blindsight (Firefall) (p. 337). Tom Doherty Associates. Kindle Edition. 
 
 
-Before reading any further try to find a pattern in the video. Is eye size related to the hair color or maybe the older the face the wider nose? 
+Before reading any further try to find a pattern in the video. Is eye size related to the hair color or maybe the older the face the wider the nose? 
 
 ## The Experiment
-Recently Nvidia published the [Stylegan3](https://github.com/NVlabs/stylegan3) so I decided it is past time to close my tabs with [Stylegan2](https://github.com/eps696/stylegan2ada). Peter Watts theorized that our brains are more accustomed to distinguishing patterns in faces than in boring and artificial graphs as such he proposed an interface for view data
+Recently Nvidia published the [Stylegan3](https://github.com/NVlabs/stylegan3) so I decided it is past time to close my tabs with [Stylegan2](https://github.com/eps696/stylegan2ada). Peter Watts theorized that our brains are more accustomed to distinguishing patterns in faces than in boring and artificial graphs and he proposed an interface for view data
 > “Skull diameter scales to total mass. Mandible length scales to EM transparency at one angstrom. One hundred thirteen facial dimensions, each presenting a different variable. Principle-component combinations present as multifeature aspect ratios.”
 
 > Watts, Peter. Blindsight (Firefall) (p. 337). Tom Doherty Associates. Kindle Edition.  
 
-So I decided to look into that. Let's say we have some data where Y is linearly dependent on X  (Y = ax + b). First, let’s add some noise and get something like this
-{{< figure src="No outliers.png" title=" Y is linearly dependent on X. The values are of no consequence" >}}
+So I decided to look into that. Let's say we have some data where Y is linearly dependent on X  (Y = aX + b). First, let’s add some noise and get something like this
+{{< figure src="No outliers.png" title=" Y is linearly dependent on X. The exact values are of no consequence" >}}
 
-To make the task a little bit more interesting let’s add 4 more dimensions to X. However to make the experiment a little easier to understand let's have Y dependent only on X 5 dimensions. 
+To make the task a little bit more interesting let’s add 4 more dimensions to X. However to make the experiment a little easier to understand let's have Y dependent only on one of X 5 dimensions. 
 ```
 X, y = make_regression(
     n_samples=212, n_features=5, n_informative = 1, random_state=0, noise=8.0
 )
 ```
 Now we can visualize this data using a human face. 
-First, let's get a value. Our centre of coordinates. In Blindsight the interface was optimized for a vampire I went with something a little bit more pedestrian.
+First, let's get a face. Our centre of coordinates. In Blindsight the interface was optimized for a vampire I went with something a little bit more pedestrian.
 ![Base face](blonde458.jpg)
 
 Now let’s say we have 6 different axes (about drawbacks of this approach later) we can use to "morph" the image.
@@ -85,12 +85,12 @@ But a straight comparison of data presented as a series of faces with data prese
 
 ## The Prototype
 
-Regrettably, I do not have access to GPU enabled server, so for now let's just give a rough sketch of what a system for further experiments might be.
+Regrettably, I do not have access to GPU enabled server, so for now let's just give a rough sketch of what an app for further experimentations might look like.
 
 1. I want a web app where anyone can upload a medium-sized dataset to visualize using Stylegan.
 1. The app should allow the user to specify what columns should correspond to what latent vectors.
 1. Additionally the app should allow the user to forgo the usage of the latent vectors and project the data into the latent space directly.
-1. The user should be able to specify basic transformation for every column (scaling, log, shift).
+1. The user should be able to specify basic transformations for every column (scaling, log, shift).
 1. The user should be able to view the result either as a video or a series of images.
 
 Looks straightforward enough. I hope to come back to this idea after some experiment with Stylegan 3.
