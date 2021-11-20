@@ -1,9 +1,10 @@
 ---
 title:  Using neurons and spotting patterns
-date: 2020-09-15T11:30:03.000Z
+date: 2021-11-17T11:30:03.000Z
 tags:
-    - blog
-    - AI tools
+    - Stylegan
+    - Image generation
+    - Data analysis
 author: Me
 draft: false
 description: Using Stylegan2 generated faces to visualize data

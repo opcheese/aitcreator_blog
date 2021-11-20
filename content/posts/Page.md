@@ -1,6 +1,6 @@
 ---
 title: Closing the tabs
-date: 2020-09-15T11:30:03.000Z
+date: 2021-11-01T11:30:03.000Z
 tags:
     - blog
     - AI tools
