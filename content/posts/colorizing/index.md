@@ -47,7 +47,7 @@ Then we can use [DeOldify colab] (https://colab.research.google.com/github/janti
 
 ![Colorization Transformer result](transformer.jpeg)
 
-And special improved DeOldify implementation is available at https://myheritage.com/ to produce a very decently colored image:
+And special improved DeOldify implementation (available at https://myheritage.com/) produces a very decently colored image:
 ![MyHeritage result](myhertgae.jpg)
 
 
