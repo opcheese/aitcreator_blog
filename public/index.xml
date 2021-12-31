@@ -1,22 +1,49 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>AiCreator</title>
+    <title>Closing the Tabs</title>
     <link>https://ludentes.ru/</link>
-    <description>Recent content on AiCreator</description>
+    <description>Recent content on Closing the Tabs</description>
     <image>
       <url>https://ludentes.ru/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://ludentes.ru/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 15 Sep 2020 11:30:03 +0000</lastBuildDate><atom:link href="https://ludentes.ru/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 30 Dec 2021 11:30:03 +0000</lastBuildDate><atom:link href="https://ludentes.ru/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>My 1st post</title>
-      <link>https://ludentes.ru/posts/page/</link>
-      <pubDate>Tue, 15 Sep 2020 11:30:03 +0000</pubDate>
+      <title>Generating images with AI</title>
+      <link>https://ludentes.ru/posts/image-generation/</link>
+      <pubDate>Thu, 30 Dec 2021 11:30:03 +0000</pubDate>
       
-      <guid>https://ludentes.ru/posts/page/</guid>
-      <description>Desc Text.</description>
+      <guid>https://ludentes.ru/posts/image-generation/</guid>
+      <description>My thoughts on the current state of guided image generation</description>
+    </item>
+    
+    <item>
+      <title>Colorizing with old and new</title>
+      <link>https://ludentes.ru/posts/colorizing-old-photos/</link>
+      <pubDate>Sat, 20 Nov 2021 11:30:03 +0000</pubDate>
+      
+      <guid>https://ludentes.ru/posts/colorizing-old-photos/</guid>
+      <description>Comparing Oldify with Colorization Transformer</description>
+    </item>
+    
+    <item>
+      <title>Using neurons and spotting patterns</title>
+      <link>https://ludentes.ru/posts/vamp-interface/</link>
+      <pubDate>Wed, 17 Nov 2021 11:30:03 +0000</pubDate>
+      
+      <guid>https://ludentes.ru/posts/vamp-interface/</guid>
+      <description>Using Stylegan2 generated faces to visualize data</description>
+    </item>
+    
+    <item>
+      <title>Closing the tabs</title>
+      <link>https://ludentes.ru/posts/closing-tabs/</link>
+      <pubDate>Mon, 01 Nov 2021 11:30:03 +0000</pubDate>
+      
+      <guid>https://ludentes.ru/posts/closing-tabs/</guid>
+      <description>The initial post</description>
     </item>
     
     

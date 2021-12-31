@@ -1,21 +1,57 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Tags on AiCreator</title>
+    <title>Tags on Closing the Tabs</title>
     <link>https://ludentes.ru/tags/</link>
-    <description>Recent content in Tags on AiCreator</description>
+    <description>Recent content in Tags on Closing the Tabs</description>
     <image>
       <url>https://ludentes.ru/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://ludentes.ru/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 15 Sep 2020 11:30:03 +0000</lastBuildDate><atom:link href="https://ludentes.ru/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 30 Dec 2021 11:30:03 +0000</lastBuildDate><atom:link href="https://ludentes.ru/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>first</title>
-      <link>https://ludentes.ru/tags/first/</link>
-      <pubDate>Tue, 15 Sep 2020 11:30:03 +0000</pubDate>
+      <title>AI tools</title>
+      <link>https://ludentes.ru/tags/ai-tools/</link>
+      <pubDate>Thu, 30 Dec 2021 11:30:03 +0000</pubDate>
       
-      <guid>https://ludentes.ru/tags/first/</guid>
+      <guid>https://ludentes.ru/tags/ai-tools/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Data analysis</title>
+      <link>https://ludentes.ru/tags/data-analysis/</link>
+      <pubDate>Sat, 20 Nov 2021 11:30:03 +0000</pubDate>
+      
+      <guid>https://ludentes.ru/tags/data-analysis/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Image generation</title>
+      <link>https://ludentes.ru/tags/image-generation/</link>
+      <pubDate>Sat, 20 Nov 2021 11:30:03 +0000</pubDate>
+      
+      <guid>https://ludentes.ru/tags/image-generation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Stylegan</title>
+      <link>https://ludentes.ru/tags/stylegan/</link>
+      <pubDate>Sat, 20 Nov 2021 11:30:03 +0000</pubDate>
+      
+      <guid>https://ludentes.ru/tags/stylegan/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>blog</title>
+      <link>https://ludentes.ru/tags/blog/</link>
+      <pubDate>Mon, 01 Nov 2021 11:30:03 +0000</pubDate>
+      
+      <guid>https://ludentes.ru/tags/blog/</guid>
       <description></description>
     </item>
     

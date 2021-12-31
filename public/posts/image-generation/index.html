@@ -1,0 +1,294 @@
+<!doctype html><html lang=en dir=auto>
+<head><meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=robots content="index, follow">
+<title>Generating images with AI | Closing the Tabs</title>
+<meta name=keywords content="AI tools">
+<meta name=description content="My thoughts on the current state of guided image generation">
+<meta name=author content="Me">
+<link rel=canonical href=https://ludentes.ru/posts/image-generation/>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.6f60056d44d3f7eb69a4bc6c332b59960f3a995802bded244750232f33713c49.css integrity="sha256-b2AFbUTT9+tppLxsMytZlg86mVgCve0kR1AjLzNxPEk=" rel="preload stylesheet" as=style>
+<script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
+<link rel=icon href=https://ludentes.ru/favicon.ico>
+<link rel=icon type=image/png sizes=16x16 href=https://ludentes.ru/favicon-16x16.png>
+<link rel=icon type=image/png sizes=32x32 href=https://ludentes.ru/favicon-32x32.png>
+<link rel=apple-touch-icon href=https://ludentes.ru/apple-touch-icon.png>
+<link rel=mask-icon href=https://ludentes.ru/safari-pinned-tab.svg>
+<meta name=theme-color content="#2e2e33">
+<meta name=msapplication-TileColor content="#2e2e33">
+<meta name=generator content="Hugo 0.87.0">
+<link rel=alternate type=application/json href=https://ludentes.ru/posts/image-generation/index.json>
+<noscript>
+<style>#theme-toggle,.top-link{display:none}</style>
+</noscript><meta property="og:title" content="Generating images with AI">
+<meta property="og:description" content="My thoughts on the current state of guided image generation">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://ludentes.ru/posts/image-generation/">
+<meta property="og:image" content="https://ludentes.ru/noname1.png"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2021-12-30T11:30:03+00:00">
+<meta property="article:modified_time" content="2021-12-30T11:30:03+00:00"><meta property="og:site_name" content="Closing the Tabs">
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:image content="https://ludentes.ru/noname1.png">
+<meta name=twitter:title content="Generating images with AI">
+<meta name=twitter:description content="My thoughts on the current state of guided image generation">
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"https://ludentes.ru/posts/"},{"@type":"ListItem","position":2,"name":"Generating images with AI","item":"https://ludentes.ru/posts/image-generation/"}]}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Generating images with AI","name":"Generating images with AI","description":"My thoughts on the current state of guided image generation","keywords":["AI tools"],"articleBody":"I have 50+ tabs related to this topic and the worst writer’s block in years. So instead of writing a full-blown review of the current community efforts to generate images, I’ll give a short overview of my thoughts.\nTo get a basic idea of what I am talking about, look at https://softologyblog.wordpress.com/2021/11/25/text-to-image-summary-part-5/ https://twitter.com/RiversHaveWings\nIn the last 9 months, there has been a lot of enthusiasm in the NN community about image generation, specifically, text guided image generation. At his point, this enthusiasm is very much misplaced. We can generate cool images, we can generate psychedelic videos, we can even sell them as NFTs. But practically, the results are all but useless. And I am not talking about 1 specific type of image generation. You can use VAE, GAN, FLOW, Diffusion, Score and you all will get is a set of very cool wallpapers. Maybe I am missing the point. Maybe the point of art is to get an emotional response, and AI Art does do that. But from a content creation standpoint, there needs to be a different overarching objective than the one we currently see in scientific papers.\nLet’s say I want to tell a story. It can be a book, a game, a video, a clip, an interactive novel or something else entirely. But I want the story to be accompanied by images. How do I automate that?\nFirst, I need to enumerate all the images am going to need. (Create a storyboard)\nThen I need to choose a common style for all of them. (Choose a style (what is style?))\nAnd finally, produce the images. (Generate images)\nA wrong image generation pipeline Let’s talk automatic image generation. This is the task that the scientific community is trying to solve right now. Here is the established pipeline (if we ignore model training and finetuning):\n Choose a base image Choose a generator Choose an optimizer Choose losses Create a prompt Iterate Get a result  There are two interconnected problems with this approach.\n I have little agency in the result. It does not work.  Oh, it does produce cool images. But there is a snowball’s chance in hell you are getting a storybook to illustrate anything other than an acid trip. You can get good images with a high amount of detail. They are just not going to be what you want to illustrate or how you want to illustrate, no matter how much you change the prompt or adjust the losses. Again do not think 1 cool image, think a coherent story written by you but told by generated images. And even if you could do that. Is that as a content creator what you really want? The visuals defined not by you but by the model? Random details you have no control over?\nWhat I believe to be a better approach is to leave more agency with the human creator and give him a more comprehensive set of tool, a chance to guide the generation, by part of the process and not just as a bystander.\nImage Generation pipeline assisted by AI (or may be assisted by a human)  Get a set of base associations/inspirations (We can use the “wrong” pipeline to generate these) Choose a generator Get a rough first iterations Segment images into parts you like and don’t like Specify the edits for each part  Specify some new inspiration Specify things you do NOT want Embolden parts that are good Add additional elements to the image   Specify the losses for each part  When I imagine a picture, a character, a location, I can usually come up with a number of inspirations: a scene from the movie, a song, a description from the book, a real live photo I took. Possible inspirations:\n A text prompt A style image A content image A scribble An outline  Once there is a rough first result, I often can point to objects that should be removed or can give a rough sketch (scribble) of a detail I want to be added. Like removing Bob Ross silhouette from a picture generated by ‘Happy little tree drawn by Bob Ross’ or adding a spaceship to a ‘Spaceport on top of an alien ocean’. We actually have the tools to do edits like these. It is just a matter of defining segments of the images and using one of the well-known losses.\nI am looking forward to a chance to experiment with NUWA and DiffusionClip (despite the bad reviews at https://openreview.net/forum?id=TKMJ9eqtpgP)\nThey might be a better backbone for the pipeline I’ve described above.\nSome of my experiments: \r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\rif (!jQuery) {\ralert(\"jquery is not loaded\");\r}\r$( document ).ready(() = {\rconst gallery = $(\"#gallery-7963e8f11a549eb2a7f8d76d7f82689e-0\");\rlet swipeboxInstance = null;\rgallery.on('jg.complete', () = {\r$(() = {\r$('.lazy').Lazy({\rvisibleOnly: true,\rafterLoad: element = element.css({filter: \"none\", transition: \"filter 1.0s ease-in-out\"})\r});\r});\rswipeboxInstance = $('.galleryImg').swipebox(\rjQuery.extend({},\r{ }\r)\r);\r});\rgallery.justifiedGallery({\rrowHeight : \"150\",\rmargins : \"5\",\rborder : 0,\rwaitThumbnailsLoad : false,\rlastRow : \"justify\",\rcaptions : false,\r});\r});\r\r","wordCount":"835","inLanguage":"en","image":"https://ludentes.ru/noname1.png","datePublished":"2021-12-30T11:30:03Z","dateModified":"2021-12-30T11:30:03Z","author":{"@type":"Person","name":"Me"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://ludentes.ru/posts/image-generation/"},"publisher":{"@type":"Organization","name":"Closing the Tabs","logo":{"@type":"ImageObject","url":"https://ludentes.ru/favicon.ico"}}}</script>
+</head>
+<body class=dark id=top>
+<script>localStorage.getItem("pref-theme")==="light"&&document.body.classList.remove('dark')</script>
+<header class=header>
+<nav class=nav>
+<div class=logo>
+<a href=https://ludentes.ru/ accesskey=h title="Closing the Tabs (Alt + H)">Closing the Tabs</a>
+<span class=logo-switches>
+<button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+</button>
+</span>
+</div>
+<ul id=menu>
+<li>
+<a href=https://ludentes.ru/categories/ title=categories>
+<span>categories</span>
+</a>
+</li>
+<li>
+<a href=https://ludentes.ru/tags/ title=tags>
+<span>tags</span>
+</a>
+</li>
+<li>
+<a href=https://ludentes.ru title=ludentes.ru>
+<span>ludentes.ru</span>
+</a>
+</li>
+</ul>
+</nav>
+</header>
+<main class=main>
+<article class=post-single>
+<header class=post-header>
+<div class=breadcrumbs><a href=https://ludentes.ru/>Home</a>&nbsp;»&nbsp;<a href=https://ludentes.ru/posts/>Posts</a></div>
+<h1 class=post-title>
+Generating images with AI
+</h1>
+<div class=post-description>
+My thoughts on the current state of guided image generation
+</div>
+<div class=post-meta><span title="2021-12-30 11:30:03 +0000 UTC">December 30, 2021</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Me
+</div>
+</header>
+<div class=post-content><p><img loading=lazy src=noname1.png alt="Neon jungle drawn by Bob Ross">
+</p>
+<p>I have 50+ tabs related to this topic and the worst writer&rsquo;s block in years. So instead of writing a full-blown review of the current community efforts to generate images, I&rsquo;ll give a short overview of my thoughts.</p>
+<p>To get a basic idea of what I am talking about, look at
+<a href=https://softologyblog.wordpress.com/2021/11/25/text-to-image-summary-part-5/>https://softologyblog.wordpress.com/2021/11/25/text-to-image-summary-part-5/</a>
+<a href=https://twitter.com/RiversHaveWings>https://twitter.com/RiversHaveWings</a></p>
+<p>In the last 9 months, there has been a lot of enthusiasm in the NN community about image generation, specifically, text guided image generation. At his point, this enthusiasm is very much misplaced. We can generate cool images, we can generate psychedelic videos, we can even sell them as <a href=https://opensea.io/assets/matic/0x2953399124f0cbb46d2cbacd8a89cf0599974963/36233343970742020275838041650246655519565049475370947438745134314357604220929>NFTs</a>. But practically, the results are all but useless. And I am not talking about 1 specific type of image generation. You can use VAE, GAN, FLOW, Diffusion, Score and you all will get is a set of very cool wallpapers. Maybe I am missing the point. Maybe the point of art is to get an emotional response, and AI Art does do that. But from a content creation standpoint, there needs to be a different overarching objective than the one we currently see in scientific papers.</p>
+<p>Let&rsquo;s say I want to tell a story. It can be a book, a game, a video, a clip, an interactive novel or something else entirely. But I want the story to be accompanied by images. How do I automate that?</p>
+<p>First, I need to enumerate all the images am going to need. (Create a storyboard)<br>
+Then I need to choose a common style for all of them. (Choose a style (what is style?))<br>
+And finally, produce the images. (Generate images)</p>
+<h2 id=a-wrong-image-generation-pipeline>A wrong image generation pipeline<a hidden class=anchor aria-hidden=true href=#a-wrong-image-generation-pipeline>#</a></h2>
+<p>Let&rsquo;s talk automatic image generation. This is the task that the scientific community is trying to solve right now.
+Here is the established pipeline (if we ignore model training and finetuning):</p>
+<ol>
+<li>Choose a base image</li>
+<li>Choose a generator</li>
+<li>Choose an optimizer</li>
+<li>Choose losses</li>
+<li>Create a prompt</li>
+<li>Iterate</li>
+<li>Get a result</li>
+</ol>
+<p>There are two interconnected problems with this approach.</p>
+<ol>
+<li>I have little agency in the result.</li>
+<li>It does not work.</li>
+</ol>
+<p>Oh, it does produce cool images. But there is a snowball&rsquo;s chance in hell you are getting a storybook to illustrate anything other than an acid trip. You can get good images with a high amount of detail. They are just not going to be what you want to illustrate or how you want to illustrate, no matter how much you change the prompt or adjust the losses. Again do not think 1 cool image, think a coherent story written by you but told by generated images.
+And even if you could do that. Is that as a content creator what you really want? The visuals defined not by you but by the model? Random details you have no control over?</p>
+<p>What I believe to be a better approach is to leave more agency with the human creator and give him a more comprehensive set of tool, a chance to guide the generation, by part of the process and not just as a bystander.</p>
+<h2 id=image-generation-pipeline-assisted-by-ai-or-may-be-assisted-by-a-human>Image Generation pipeline assisted by AI (or may be assisted by a human)<a hidden class=anchor aria-hidden=true href=#image-generation-pipeline-assisted-by-ai-or-may-be-assisted-by-a-human>#</a></h2>
+<ol>
+<li>Get a set of base associations/inspirations (We can use the &ldquo;wrong&rdquo; pipeline to generate these)</li>
+<li>Choose a generator</li>
+<li>Get a rough first iterations</li>
+<li>Segment images into parts you like and don&rsquo;t like</li>
+<li>Specify the edits for each part
+<ol>
+<li>Specify some new inspiration</li>
+<li>Specify things you do NOT want</li>
+<li>Embolden parts that are good</li>
+<li>Add additional elements to the image</li>
+</ol>
+</li>
+<li>Specify the losses for each part</li>
+</ol>
+<p>When I imagine a picture, a character, a location, I can usually come up with a number of inspirations: a scene from the movie, a song, a description from the book, a real live photo I took.
+Possible inspirations:</p>
+<ul>
+<li>A text prompt</li>
+<li>A style image</li>
+<li>A content image</li>
+<li>A scribble</li>
+<li>An outline</li>
+</ul>
+<p>Once there is a rough first result, I often can point to objects that should be removed or can give a rough sketch (scribble) of a detail I want to be added. Like removing Bob Ross silhouette from a picture generated by &lsquo;Happy little tree drawn by Bob Ross&rsquo; or adding a spaceship to a &lsquo;Spaceport on top of an alien ocean&rsquo;. We actually have the tools to do edits like these. It is just a matter of defining segments of the images and using one of the well-known losses.</p>
+<p>I am looking forward to a chance to experiment with <a href=https://github.com/microsoft/NUWA>NUWA</a> and <a href=https://arxiv.org/abs/2110.02711>DiffusionClip</a> (despite the bad reviews at <a href="https://openreview.net/forum?id=TKMJ9eqtpgP">https://openreview.net/forum?id=TKMJ9eqtpgP</a>)</p>
+<p>They might be a better backbone for the pipeline I&rsquo;ve described above.</p>
+<p>Some of my experiments:
+<script src=/shortcode-gallery/jquery-3.6.0.min.js></script>
+<script src=/shortcode-gallery/lazy/jquery.lazy.min.js></script>
+<script src=/shortcode-gallery/swipebox/js/jquery.swipebox.min.js></script>
+<link rel=stylesheet href=/shortcode-gallery/swipebox/css/swipebox.min.css>
+<script src=/shortcode-gallery/justified_gallery/jquery.justifiedGallery.min.js></script>
+<link rel=stylesheet href=/shortcode-gallery/justified_gallery/justifiedGallery.min.css>
+<style></style>
+<div id=gallery-7963e8f11a549eb2a7f8d76d7f82689e-0-wrapper class=gallery-wrapper>
+<div id=gallery-7963e8f11a549eb2a7f8d76d7f82689e-0 class=justified-gallery>
+<div>
+<a href=/posts/image-generation/images/Spaceship%20landing%20on%20an%20ocean%20by%20Ron%20Gonsalves.mp4.jpg class=galleryImg>
+<img width=256 height=256 style=filter:blur(25px) src=data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4+JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIACAAIAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5+gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4+Tl5ufo6ery8/T19vf4+fr/2gAMAwEAAhEDEQA/ANCPUIgu6K5IIH3C3fPrTjrcilx8x2fe7gfjXKRancRSq8ZO5TkExHINaCau8yQ2t/BiCWUlrpWUEEgfeDHjoOc+3FejVnSiuZ7HDTU5PlW5sHxAvePP4U9PE8KHlHH0NY15pbQzbEkaWM/ckU/KRVGaxuFGElTj1JqYyozinHVeplOs6cnGej80WLcWN3IEjhMz9Nvzcf0FXorUCRoUh2gZ4YDrXEaDd3UOpoyuChYbsEKevrXZtqshdxgPhyUOc8emeteTicRKMbHZh8vhz8yb+8j1G+h0VUjjS3Z+S0fmbdnvwCKv6bdG7s1nvoIrcNyiqc7h684xVQahE8bAlgHUqw7EehpqXvyeXFIiqBgKVA/wrz1ibLS6Z6SwV97NH//Z class=lazy data-src=/posts/image-generation/images/Spaceship%20landing%20on%20an%20ocean%20by%20Ron%20Gonsalves.mp4_hu4199da9b4d11a96dbcc50ea9b30db05d_24483_600x600_fit_q90_lanczos.jpg>
+</a>
+</div>
+<div>
+<a href=/posts/image-generation/images/Spaceport%20on%20top%20of%20an%20alien%20ocean%20%20ArtStation%20HD.mp4.jpg class=galleryImg>
+<img width=288 height=288 style=filter:blur(25px) src=data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4+JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIACAAIAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5+gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4+Tl5ufo6ery8/T19vf4+fr/2gAMAwEAAhEDEQA/AH/26xf5ZCB6CtrTNVuDNG0kjiMHJJJIxWP4N0iP7At/qUe55mTylblUU5OSPUgDGePmFU/El3dxyGJI9pJwoiUhQP654rerU5m0jgp0/ZJGzY+IVksFSWLzHjZ97l8ZyxP9aZZ6zY3OnW8sgbzGiXfgg4bHNedSPeQSmNmQlh0DdPc1Ys7m9k3oiSusI3OeoUf4Uoxew3JLUt6nrVxaahFPb3D2kqwrGkqnKOgHCuvt2qjPr2q3j5kiDA/xwn5D9azvtYu7YRlAWX7xA5NVHsJjJiMAAnjIojpoaPXc6yGK1nmfyYvMf7pkB4PFFvq1rBqaR2tsUKnY5ORgdyaq6Qiac0JLsXB3MccD8aq6trn2iRhEFCE9QuCf1pe0bfKZ+xXxH//Z class=lazy data-src=/posts/image-generation/images/Spaceport%20on%20top%20of%20an%20alien%20ocean%20%20ArtStation%20HD.mp4_hu366e090216bb82f9ba574a131c3d42c7_32392_600x600_fit_q90_lanczos.jpg>
+</a>
+</div>
+<div>
+<a href=/posts/image-generation/images/rendered%20in%20maya.mp4.jpg class=galleryImg>
+<img width=288 height=288 style=filter:blur(25px) src=data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4+JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIACAAIAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5+gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4+Tl5ufo6ery8/T19vf4+fr/2gAMAwEAAhEDEQA/AGw/GPVLxttvYwq34mrFl458S6nqcFl5yxea4DbFUFV5JPr0BrlbKKwsbYwRbY3X5WZwT5mOcg88/wAulWdHEFjrVrrjeZHawb1kkXd824FcqByRlhk1dSV9oqxyxik93950V94v1+yvkifV9qzRJPFuhHKsMjnbg46fhVC6+IviiCyN3bXcU6YzzEMgevQVbvbWz8TafpklvII5rK1jt5muH8tOOh/PPP8AtAVQvvDraRYM02oWl15hPyQyZZQfXPb3rmUnGWxqoqSMe3ea11B5Irp7cSluPLEqkhcKSpHBziodN1HUrPXM30banHqOLeWLfggFhtKnGFIIGOMVpS6PqjW73k6zR20jloHLgrKGGR1P6cCmW1qkbIXvIDJH0fzkGCDkH61EJtGsoX0GNqemzW3k2dtdvLdRsoM8YRVQkq3c7uhHas60uoPK8gQ+Q4IDKrdBgj8eccdf1rWmSOMIPPtv3ce2N3kTaq7ieoJ5yScGub1bWrOKOaC02zTyZzOvQeuMgZPvgf1qpydSSsZU6SpqyP/Z class=lazy data-src=/posts/image-generation/images/rendered%20in%20maya.mp4_hu58aa90b9f05ec61bd1003fc426f83204_37265_600x600_fit_q90_lanczos.jpg>
+</a>
+</div>
+<div>
+<a href=/posts/image-generation/images/old_man_iceberg%20%282%29.mp4.jpg class=galleryImg>
+<img width=600 height=480 style=filter:blur(25px) src="data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4+JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIABoAIAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5+gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4+Tl5ufo6ery8/T19vf4+fr/2gAMAwEAAhEDEQA/APT9S1SK3U5lVR6mucvNbsyMm9ye425/rXls2p+Jbi9+03M1xIc48peEx7DpXTaJc2KLINUsHlO4NG5Vs4xyDjIroUVY4qtRpm5/wkMMCGYW5eNer9OK6XSfEWn3HyJcwsw6qrZIrhvEN6l5pctvYWbr5uBvb5ERe5Ocelcvo+i3CSw39vcxgkkgxsGyD1HH41MI826sTCc7OTNOOe6SPyo5UKkfN5hUdPwqX7VdI/mC4jc7duxZAf0x1rK1IBeVAByOlZqkqxwSOO1fPRqVHtJlSXK7GtqGq30tpLaPpyzrM5LNNI+NuOBhSB1FRoXtkjitLcxxhFxGW6HAzz35yelRxMwkA3HGema0ohnk9xXSq8nGzOyDUkf/2Q==" class=lazy data-src=/posts/image-generation/images/old_man_iceberg%20%282%29.mp4_hu29753f5e63a1b393a82219715083d853_69116_600x600_fit_q90_lanczos.jpg>
+</a>
+</div>
+<div>
+<a href=/posts/image-generation/images/noname2.png class=galleryImg>
+<img width=592 height=592 style=filter:blur(25px) src=data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4+JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIACAAIAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5+gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4+Tl5ufo6ery8/T19vf4+fr/2gAMAwEAAhEDEQA/AOI06C43JPaaPERc2zRqDJtwCQASSBngN06gnPQ0mtWl1qiea/2ONInf54SSG3OByxwMAk89QOD2qAw6haxpH/az+WyIyiKbAIGMZx6bRwfSqFxaXMa5iuHZScYD5J5z+PNdEcHV5HO2hxpJtSTX4lrTLKytkmN+oM8bbGR2xjOQPb3zVjVrbSzYuqokMsbEZXsff8qoJBcJFKk6RTvKwZiZvn4/rzV9tEudYtbq9RrW1heQzYllwcDr26DeBk45qY1YuPKtT0oYiUI8ko/gR29lcjQ/tpvbbKYbySCTt6DLDgc9jVRL+4uJkhhh/eE8KDxke/p71Ytr+WLSpoXleIbEVVLEY+8ckfiex/rUOlzQabdw3c6RXEXIwGIGfernNxptRZnVcLRUeojQWsJuPNEskqqdoRvlU5ODn+IYx+fWnbNXGnmZC5t1DPwx6AjPH1YVPFqyoG2xReZCxMbsOVBGCPQjk/pVi41mJfCkUABDMHjYBgeuCDjdkdPT/wCvm/3a0ZzVcRWulFW1sf/Z class=lazy data-src=/posts/image-generation/images/noname2_hu92f14c8644edc50f71f07e0af5d41c8d_517866_600x600_fit_q90_lanczos_3.png>
+</a>
+</div>
+<div>
+<a href=/posts/image-generation/images/last.jpg class=galleryImg>
+<img width=256 height=256 style=filter:blur(25px) src="data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4+JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIACAAIAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5+gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4+Tl5ufo6ery8/T19vf4+fr/2gAMAwEAAhEDEQA/AOk0byWVVDhWPAzitG5k8hTtYsVODjBwfwNefxeK1EaoBx9R1rQ0/UbjULjbarIS33myCB9T+ddSUumhyNvm11X4nQreXEr7Rv5OPlO7+lZev28yRMJUKvjvwfypmqajfaZaQGCbEss20kgMNoBz+uKi1HU7y6giaZg+6Nc4GMHGD+ua2hCo7PQxdSnF8t2edJZJkjNwh7dD/QV1eleIvsenxaba6fK23lmV2y7EDLEYOOn0rDGpGNAwCPhckOCP/QcHrTptemQfIDbrgbyrd/r9Qe1eZUxM7WsdkaLT+I6TUry7upLfzLGZvIBON6knJHXOPSrENys1qIJLKeN1lkw5KbdrOzD+LtnH4VzFrrDyqjzXnnPICzo427T6/p2x1qxJ9rdi1s7PHxg7jn8jTo4uUrRe6M62GjGTlvc//9k=" class=lazy data-src=/posts/image-generation/images/last_hu65050258f28ef87e555723ec52198701_19965_600x600_fit_q90_lanczos.jpg>
+</a>
+</div>
+<div>
+<a href=/posts/image-generation/images/hyper.mp4.jpg class=galleryImg>
+<img width=512 height=512 style=filter:blur(25px) src=data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4+JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIACAAIAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5+gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4+Tl5ufo6ery8/T19vf4+fr/2gAMAwEAAhEDEQA/AIbuQSxzfZxuZAxfjjaMEfyNNvRazaFZuxIcsIiOygnk/kax7C8MkM+3kSx4HPrU1wx+xRxgk7G3ZHQdM5rdyuro4+ZlvUPslsbRIIxsikc9M8EcD6U+4ka7sIIA2028QIB7nrj9aqXEMs7FhJxgHYe57/pk/gajkLmUFyUweTn8ePrTUgu7lOCF/KnkwsrBPuJznngHH4Vqr5UDb7qEGNlQBieS5P8Ad5yMD9a5qLW/sb7YgYnbIYE5x7/jT73xGJyg3swEhkJc55wAMeg4P51zavRmqhc28ma4aSbfFaI7FhnAGBjr+eT35qO5j88xyWqt5MgJWTqT83THbocZ9vWsSbxEZWBcq4HUE5B/PrUcGtkxLGGCLt2kDvyTzVWV9x8mp//Z class=lazy data-src=/posts/image-generation/images/hyper.mp4_hu661f85bbd09ad19caf1ca9606cd3f5fd_90981_600x600_fit_q90_lanczos.jpg>
+</a>
+</div>
+<div>
+<a href=/posts/image-generation/images/forest.mp4.jpg class=galleryImg>
+<img width=512 height=512 style=filter:blur(25px) src="data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4+JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIACAAIAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5+gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4+Tl5ufo6ery8/T19vf4+fr/2gAMAwEAAhEDEQA/ANDw5cbIpHNnHNtXJbO0gflzUGqXMKeILeGS3z5pGxxnAOCcfkKoaRqUaiFxuKOu2TaexH+NUdV1H7Xq1pqI2B1mU+4HT8ua2UOV3ZNadOyjE7k67JbNDBDP+58zDoO4wwx+BxXJ+ItQI1HyHKnjKkqMkf5/nWZ9skjT7Ysy4WblG4PBJ+lZc91JeX8k8yhmBQK5zkDaeBz7enanOMXFNbkwq3bTQR3UsVqAjKPLwWXJDNx0GabGge1MsxK453A5YkdgPzPP90/jf0zTGud4Fi8+RggqW2H+8AOnSny6JI1s8EsVwszH5EEBGPoPpxWbmUqO5nIjPaBJCqxqxO8jkHjP6VH5cImbybjz1Zl2tsI6D+ddLaaHqLLEbjT9TKqm3MaMf1FZsmj3dswMkVzGpbP70Yx+frRzj9kk7pn/2Q==" class=lazy data-src=/posts/image-generation/images/forest.mp4_hu3110094fb8218663d18d8afa973467a7_79097_600x600_fit_q90_lanczos.jpg>
+</a>
+</div>
+<div>
+<a href=/posts/image-generation/images/desfl512.mp4.jpg class=galleryImg>
+<img width=512 height=512 style=filter:blur(25px) src=data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4+JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIACAAIAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5+gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4+Tl5ufo6ery8/T19vf4+fr/2gAMAwEAAhEDEQA/AGLcSbtoHmEHk+UcH/P9KWS2gnlXfEM7ScbTj86upFcblG5WYHqy5OKXU7R5tOk3yFy5O1QGUhenTJ/WuxOcZKLe5x89Nxc10KsemQu42gcjOFFaNvpsKAcAZ9RXIWL3+lSrFAz7HO0JKT8v4dK6q2uWhTLoIm6kg8fTntXRUnVSsc8HSbu2ULTT9St7qG3n1PyzMeFX5tuTxjiur+xm10tWlId0JyZB970yRnHI9DXM2mvafdXEcxI3x/dGa2H1tZoXUnKsMHnFeG8XOS1Z6scFCDvFGOySXkc1oFZ32LiRgikY+9wMH269hWfrFzFoVtEVt5WLjlnbcU9ie9W5rixtr571WZZGUKw3cHFYV5fQ6hqRknuD5SjhAo4NZ08TOEro1nhYzhaSP//Z class=lazy data-src=/posts/image-generation/images/desfl512.mp4_hud6823a858a0546b4f75cea1c6bcdf761_97159_600x600_fit_q90_lanczos.jpg>
+</a>
+</div>
+<div>
+<a href=/posts/image-generation/images/birdplfl512.mp4.jpg class=galleryImg>
+<img width=512 height=512 style=filter:blur(25px) src=data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4+JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIACAAIAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5+gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4+Tl5ufo6ery8/T19vf4+fr/2gAMAwEAAhEDEQA/AKEkxSZiik7RzUtxZT/ZhKtxCCRllYkbf0qpeTLZoka+V5+MtK4J2n2xSf2VJDbQXcmqLci75eOKTJ6Zx+n4V1Nt6XOVvrYUrNA2A4c4zx0/OrImgMUW6ZzcksJIjEQFGeCG75qlLaWq24u7ZSqoeY2O76f4Zp5JuojOiGIRj5h1z+OafvXS+8E1qZ9xHmSKa9u+JSd2xNxXHbg8VtW62UqefbSrFDvIG5SpUgA4PPP8qpC5luIza/KI8jAx079aVPsStLZ3QJhmXDEcAt2NZ8jnqxuXK9EalvFokenygTzTTNgIgRlA564wQc4HOccVURpNuHQq7/eUgAqfwrPt7NNMuzPDMJw5wUk+bIzkZ/EDmtaFZZrwzsqqG5IHTNaKDUtwUlLof//Z class=lazy data-src=/posts/image-generation/images/birdplfl512.mp4_hu448f07d03367507424e0dc435fa80922_68196_600x600_fit_q90_lanczos.jpg>
+</a>
+</div>
+<div>
+<a href=/posts/image-generation/images/birdfl512.mp4.jpg class=galleryImg>
+<img width=512 height=512 style=filter:blur(25px) src=data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4+JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIACAAIAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5+gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4+Tl5ufo6ery8/T19vf4+fr/2gAMAwEAAhEDEQA/AOAzMTgRuiAcDBpxaVEDnABbaMnqf8mm+UzqWbcTjPPOavvZ6SbSLyjO1wQC5KYXPcV6rrWd0zzZWjZNFYNK2QsbMR12jNA87P8AqZgfdDU7WUaQblmiT/ZYf4GqpYI2TkKB/Cev40fWW1aSHFRlsxLe6iaIPJII8kD5getaX2QkF9xbb8hLOQQee4zgdByKzluoEhEUqq+0ggY7jNStrNmFe0bIR+6AYBJ64PXivObl0Ot04vVotm0twjv9oklYjAAOP/rmqF0B9lBQsjOc4de3P+eKJr2Nc4kGVAC7uffrWcZQ7l0wqj+EHjPryaFKUr3KVKMbWP/Z class=lazy data-src=/posts/image-generation/images/birdfl512.mp4_hufd28412f1820f1de764e7a16a92b48a3_68538_600x600_fit_q90_lanczos.jpg>
+</a>
+</div>
+<div>
+<a href=/posts/image-generation/images/bf512.mp4.jpg class=galleryImg>
+<img width=512 height=512 style=filter:blur(25px) src="data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4+JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIACAAIAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5+gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4+Tl5ufo6ery8/T19vf4+fr/2gAMAwEAAhEDEQA/AJrXVtKu7/y3ugMngbSNx9Aa177W9LsZVt4FXcFwzZ3c/h3rl7HQ7Ce0icny5M7mdSCf1Bq5a6TZC4jlLTM5maEgsMDA68D0A/EmuV1b7Gip2e4+/wBcvN0gtVhCrjAZck88nr3wR0q7YalavGbjeEYHb5ZHOaS+0yGDTJZYiSyLuIx2zg9vY1xK3cl9J/oTIrLywLYBHbrU05vqXOEWtDKspZY7kzNfEDG3YF4Iz9a3I7+6Wz863miDqdwVl3LnBHP5j8qjjs4rlF8yXGGB6elaFto1giSB7kt5hz90gD0GM4x9MVEpp6jUWtCwb2e80m2nllna6MRO23cxqfmYHIHUkAfSsCRLyBopmtTbNcR+ZuVMYJYjB468Z/GtmS1W1XFrqTRADGEQ9M5xyTVOZjJLvMyE4xxEB7etSpRtsNxbtqf/2Q==" class=lazy data-src=/posts/image-generation/images/bf512.mp4_huccc81cd4f8626c53d59d3c8f2e48393f_91690_600x600_fit_q90_lanczos.jpg>
+</a>
+</div>
+<div>
+<a href=/posts/image-generation/images/b512.mp4.jpg class=galleryImg>
+<img width=512 height=512 style=filter:blur(25px) src="data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4+JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIACAAIAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5+gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4+Tl5ufo6ery8/T19vf4+fr/2gAMAwEAAhEDEQA/APN4FM0+duc1qR6dIFBbcv1BH86itLiSNcRsI2/2EAP5jmpIZpUldnhEhj++JGwevTHU/hXoQjy7v7jz3UUnZD3sZMcEn6YP9ayrm2VHJLjcO2DWwJZgv2hoh5ak53A7c+may9VzbQSNLt86bKqqjhR3P9PxpVpUr2SCi5yZPDAFs0uC6lXbbtVsnj2H1q7DbedbK4VVkL8l2AJ4zyO3fv8AhXN21/NaL+7uZoyOVCHA/nWzF4ghnAeULHMQA5Kblb+v4VyOrNao2+qqSs2Xp1jWaONjvU44XaQSPQ8jP1rK1qOBrUSZmFyrnMb4x5Z6EEd/WpL7VoN8iWz74wwAOCCwx1BPT8ax571pkAc5IGOuc+9Zxc2ryN1RjGXu9D//2Q==" class=lazy data-src=/posts/image-generation/images/b512.mp4_huc2a08ef31e7e812eb3edd66695ee5cb6_71255_600x600_fit_q90_lanczos.jpg>
+</a>
+</div>
+<div>
+<a href=/posts/image-generation/images/b512%20%281%29.mp4.jpg class=galleryImg>
+<img width=512 height=512 style=filter:blur(25px) src="data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4+JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIACAAIAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5+gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4+Tl5ufo6ery8/T19vf4+fr/2gAMAwEAAhEDEQA/AC2tzLuIHC89q1Y44IbePdhiTlvpmuLutVkKbY2IBOVC8bjXXJZyNbIWgmEiRoqfKTk/xf41w1Z2aszeEe4/V9JksrwARkRSDKszZ/DNZtzC0S4ZcZror5J7tMyRkukZRQx6n1Hp3rl9Wv7m3KRyaXIuRw/mZ3fTAxWkaqk7EcjSM/w0ZraC6muYlibCgZcElRkn9cV1GleLIb64u7JoyJLeKSRtvzjauM/zrj0kj6FuvtRHbQxs0sccchbJKl2Xd9SK5Xyt3Zs72O21XWWtZGhiRXMcqLOzMUEYYZDDP3uvb3rkZ/FVtqXn2j4VrfGxmIO44Of1qfWLsXsJtoVeKJlw7ebkfgOo5561ykmjxqxIucHGM7Rn86qEYdQk3pY//9k=" class=lazy data-src=/posts/image-generation/images/b512%20%281%29.mp4_hud19ea5e82971118f85934559eccc20b1_80125_600x600_fit_q90_lanczos.jpg>
+</a>
+</div>
+<div>
+<a href=/posts/image-generation/images/an_alien_ocean_and_a_spaceship_by_Ron_Gonsalves.mp4.jpg class=galleryImg>
+<img width=256 height=256 style=filter:blur(25px) src="data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4+JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIACAAIAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5+gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4+Tl5ufo6ery8/T19vf4+fr/2gAMAwEAAhEDEQA/ALzeFMnMt4pPt/8AroHhu2V1TzgWbpk4z/nBqld69Olo0sZQMGxyd2Pfg1zz6/qYuPOF6pIcPjPGRkDjFdkqmJlazRwTnCMrWO1HheMdHi/Fz/hTj4Vc/wCrZSfRZP8AHFYdlrl3dRFwd8pOXABwPp7dKmbXdRhOVhYY7lqlYmcXa6OiNHmV0mc1ZvM0QZdsiuMYbDdPTI4q5FDFv5jO89QFBFctYavNYkhGDI33kboa0j4pmZPLigjiB/iBJb/P4VnXnO3upE/Vnze9J2O0e4/suwSRLVJZGzuXzMbfwx6e9EOpLd2AlkiEUrchF7D3Oa4dtdvFXHnNz154FVZtZuWH+uY/WvIVKcu3qespQj3P/9k=" class=lazy data-src=/posts/image-generation/images/an_alien_ocean_and_a_spaceship_by_Ron_Gonsalves.mp4_hu15c42dbeb6e99519cb391fbea438bbf3_23632_600x600_fit_q90_lanczos.jpg>
+</a>
+</div>
+<div>
+<a href=/posts/image-generation/images/alienrtxfl512.mp4.jpg class=galleryImg>
+<img width=512 height=512 style=filter:blur(25px) src="data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4+JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIACAAIAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5+gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4+Tl5ufo6ery8/T19vf4+fr/2gAMAwEAAhEDEQA/AL0mrKshRArjr0I4qF9XiBO6NRj/AG6tXkaXTecY4yswHls0+4IT24Az345NcMvnPfmL5XtizbGJJXaDxnnJ4wK5qU4zOuopU9TfvteuQIltGiiYsNy+YpZh6DNNOsmOVY5Lp2kf7q7sk1WNgxljMsM4WMhkVQcZ7du/0q7BpVnLIsgju43iGGaQBsD2J57eorXkurtpHO5SbtZ3Mee1g81Sb1I5twPL8t+GDj8qu3LW7CWGz8mW4jXn+6GzgjJ/Hr1qjJtLlyce4HNNE8KyPIiCN3PzEE4b060oQSV3qZKMlaLZqWUmoWixjcpGwYjyrRqRjgA9PXANTt4h1qOSdLe6tIvNJIj8kDZ9DyazRrM1lAghiSVZG+bccEU43KzOXChCSThenNc3s+aTui6bqwk4uV0f/9k=" class=lazy data-src=/posts/image-generation/images/alienrtxfl512.mp4_hu551f8591c08136e6b606d804b61f8786_69856_600x600_fit_q90_lanczos.jpg>
+</a>
+</div>
+<div>
+<a href=/posts/image-generation/images/alien_ship_by_aivazoski.mp4.jpg class=galleryImg>
+<img width=256 height=256 style=filter:blur(25px) src="data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4+JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIACAAIAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5+gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4+Tl5ufo6ery8/T19vf4+fr/2gAMAwEAAhEDEQA/AN+fXoI/vSck4AFQprsUoO2QKc4wxxXLyQX0comjXeQcjmo47+8Cyp9hhXdgHcSOntmnKMWZVKlVP3UdamtRlwjPg59ela9ndrKow2a4Ow0vU9Tuh+72Bs/ORhePeujht7nSSI5m3Zwdwzj6ULljombQcmrtDfEmr2ehQQTNCZYpZNr+XjgYNV/DN/oWuPJJZRSpcwfMwmQYI9R1qDVtF1cafID9mlwM/O2f6Vylp4kXRi6HSlincFZJIZtoP4YP865kvdt1Ohr3rnqjy3kMTtsZlGeEOOnOBWTNqsckCTzwSQ/7MgwfxB5rgZvG9xLbsipcJKW3B0lx6Y9emBVFtX1O9kLyTMCeCxbJI9DSpwaZrUcH1/A//9k=" class=lazy data-src=/posts/image-generation/images/alien_ship_by_aivazoski.mp4_hube022f7ee9a2e9d4f5340b002b13cda0_19020_600x600_fit_q90_lanczos.jpg>
+</a>
+</div>
+<div>
+<a href=/posts/image-generation/images/alien_platform_by_aivazoski.mp4.jpg class=galleryImg>
+<img width=256 height=256 style=filter:blur(25px) src="data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4+JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIACAAIAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5+gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4+Tl5ufo6ery8/T19vf4+fr/2gAMAwEAAhEDEQA/AO31NUWULuGTxVG8treCJjIULIu5lB5Axmr+safIbkTRnPPAzVLWb14NOdnhUEYMgB5PQfyrOdS7sc7i43bRkpaicpMiEI67gT6Gun0W3VAOOtcjaayHtljgjZmXouRgDr6Vtabq99HIBJHHt45A5rSDmFNwauWNUOuzROdNubYnqoIBJ9q8w1zTPEFtfie8T55pNqsCfmOeg5rXufFM2lqGMInwDxu4/KsSDW7bV7uMTpJD5cjSKwmOUYsGyM+4pcri72On2ba3O/07ToNO08Sy2zTsijdHkKSe/Q/1qKbX7eSEMLZ7Jl/5ZsQSw454JFVtLtLNIP3V3cSAjq7j/CsjW7OUYeO5Zl9D2qHJqV7aEqjY/9k=" class=lazy data-src=/posts/image-generation/images/alien_platform_by_aivazoski.mp4_hu1a5b608809bd57216ee27d04d8379b88_19832_600x600_fit_q90_lanczos.jpg>
+</a>
+</div>
+<div>
+<a href=/posts/image-generation/images/Alien%20tower%20over%20an%20ocean%20by%20Ron%20Gonsalves.mp4.jpg class=galleryImg>
+<img width=256 height=256 style=filter:blur(25px) src="data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4+JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIACAAIAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5+gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4+Tl5ufo6ery8/T19vf4+fr/2gAMAwEAAhEDEQA/AOk0byWVVDhWPAzitG5k8hTtYsVODjBwfwNefxeK1EaoBx9R1rQ0/UbjULjbarIS33myCB9T+ddSUumhyNvm11X4nQreXEr7Rv5OPlO7+lZev28yRMJUKvjvwfypmqajfaZaQGCbEss20kgMNoBz+uKi1HU7y6giaZg+6Nc4GMHGD+ua2hCo7PQxdSnF8t2edJZJkjNwh7dD/QV1eleIvsenxaba6fK23lmV2y7EDLEYOOn0rDGpGNAwCPhckOCP/QcHrTptemQfIDbrgbyrd/r9Qe1eZUxM7WsdkaLT+I6TUry7upLfzLGZvIBON6knJHXOPSrENys1qIJLKeN1lkw5KbdrOzD+LtnH4VzFrrDyqjzXnnPICzo427T6/p2x1qxJ9rdi1s7PHxg7jn8jTo4uUrRe6M62GjGTlvc//9k=" class=lazy data-src=/posts/image-generation/images/Alien%20tower%20over%20an%20ocean%20by%20Ron%20Gonsalves.mp4_hu65050258f28ef87e555723ec52198701_19965_600x600_fit_q90_lanczos.jpg>
+</a>
+</div>
+</div>
+</div>
+<script>jQuery||alert("jquery is not loaded"),$(document).ready(()=>{const a=$("#gallery-7963e8f11a549eb2a7f8d76d7f82689e-0");let b=null;a.on('jg.complete',()=>{$(()=>{$('.lazy').Lazy({visibleOnly:!0,afterLoad:a=>a.css({filter:"none",transition:"filter 1.0s ease-in-out"})})}),b=$('.galleryImg').swipebox(jQuery.extend({},{}))}),a.justifiedGallery({rowHeight:"150",margins:"5",border:0,waitThumbnailsLoad:!1,lastRow:"justify",captions:!1})})</script>
+</p>
+</div>
+<footer class=post-footer>
+<ul class=post-tags>
+<li><a href=https://ludentes.ru/tags/ai-tools/>AI tools</a></li>
+</ul>
+<nav class=paginav>
+<a class=next href=https://ludentes.ru/posts/colorizing-old-photos/>
+<span class=title>Next Page »</span>
+<br>
+<span>Colorizing with old and new</span>
+</a>
+</nav>
+<div class=share-buttons>
+<a target=_blank rel="noopener noreferrer" aria-label="share Generating images with AI on twitter" href="https://twitter.com/intent/tweet/?text=Generating%20images%20with%20AI&url=https%3a%2f%2fludentes.ru%2fposts%2fimage-generation%2f&hashtags=AItools"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM195.519 424.544c135.939.0 210.268-112.643 210.268-210.268.0-3.218.0-6.437-.153-9.502 14.406-10.421 26.973-23.448 36.935-38.314-13.18 5.824-27.433 9.809-42.452 11.648 15.326-9.196 26.973-23.602 32.49-40.92-14.252 8.429-30.038 14.56-46.896 17.931-13.487-14.406-32.644-23.295-53.946-23.295-40.767.0-73.87 33.104-73.87 73.87.0 5.824.613 11.494 1.992 16.858-61.456-3.065-115.862-32.49-152.337-77.241-6.284 10.881-9.962 23.601-9.962 37.088.0 25.594 13.027 48.276 32.95 61.456-12.107-.307-23.448-3.678-33.41-9.196v.92c0 35.862 25.441 65.594 59.311 72.49-6.13 1.686-12.72 2.606-19.464 2.606-4.751.0-9.348-.46-13.946-1.38 9.349 29.426 36.628 50.728 68.965 51.341-25.287 19.771-57.164 31.571-91.8 31.571-5.977.0-11.801-.306-17.625-1.073 32.337 21.15 71.264 33.41 112.95 33.41z"/></svg>
+</a>
+<a target=_blank rel="noopener noreferrer" aria-label="share Generating images with AI on linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fludentes.ru%2fposts%2fimage-generation%2f&title=Generating%20images%20with%20AI&summary=Generating%20images%20with%20AI&source=https%3a%2f%2fludentes.ru%2fposts%2fimage-generation%2f"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM160.461 423.278V197.561h-75.04v225.717h75.04zm270.539.0V293.839c0-69.333-37.018-101.586-86.381-101.586-39.804.0-57.634 21.891-67.617 37.266v-31.958h-75.021c.995 21.181.0 225.717.0 225.717h75.02V297.222c0-6.748.486-13.492 2.474-18.315 5.414-13.475 17.767-27.434 38.494-27.434 27.135.0 38.007 20.707 38.007 51.037v120.768H431zM123.448 88.722C97.774 88.722 81 105.601 81 127.724c0 21.658 16.264 39.002 41.455 39.002h.484c26.165.0 42.452-17.344 42.452-39.002-.485-22.092-16.241-38.954-41.943-39.002z"/></svg>
+</a>
+<a target=_blank rel="noopener noreferrer" aria-label="share Generating images with AI on reddit" href="https://reddit.com/submit?url=https%3a%2f%2fludentes.ru%2fposts%2fimage-generation%2f&title=Generating%20images%20with%20AI"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM446 265.638c0-22.964-18.616-41.58-41.58-41.58-11.211.0-21.361 4.457-28.841 11.666-28.424-20.508-67.586-33.757-111.204-35.278l18.941-89.121 61.884 13.157c.756 15.734 13.642 28.29 29.56 28.29 16.407.0 29.706-13.299 29.706-29.701.0-16.403-13.299-29.702-29.706-29.702-11.666.0-21.657 6.792-26.515 16.578l-69.105-14.69c-1.922-.418-3.939-.042-5.585 1.036-1.658 1.073-2.811 2.761-3.224 4.686l-21.152 99.438c-44.258 1.228-84.046 14.494-112.837 35.232-7.468-7.164-17.589-11.591-28.757-11.591-22.965.0-41.585 18.616-41.585 41.58.0 16.896 10.095 31.41 24.568 37.918-.639 4.135-.99 8.328-.99 12.576.0 63.977 74.469 115.836 166.33 115.836s166.334-51.859 166.334-115.836c0-4.218-.347-8.387-.977-12.493 14.564-6.47 24.735-21.034 24.735-38.001zM326.526 373.831c-20.27 20.241-59.115 21.816-70.534 21.816-11.428.0-50.277-1.575-70.522-21.82-3.007-3.008-3.007-7.882.0-10.889 3.003-2.999 7.882-3.003 10.885.0 12.777 12.781 40.11 17.317 59.637 17.317 19.522.0 46.86-4.536 59.657-17.321 3.016-2.999 7.886-2.995 10.885.008 3.008 3.011 3.003 7.882-.008 10.889zm-5.23-48.781c-16.373.0-29.701-13.324-29.701-29.698.0-16.381 13.328-29.714 29.701-29.714 16.378.0 29.706 13.333 29.706 29.714.0 16.374-13.328 29.698-29.706 29.698zM160.91 295.348c0-16.381 13.328-29.71 29.714-29.71 16.369.0 29.689 13.329 29.689 29.71.0 16.373-13.32 29.693-29.689 29.693-16.386.0-29.714-13.32-29.714-29.693z"/></svg>
+</a>
+<a target=_blank rel="noopener noreferrer" aria-label="share Generating images with AI on facebook" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fludentes.ru%2fposts%2fimage-generation%2f"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H342.978V319.085h66.6l12.672-82.621h-79.272v-53.617c0-22.603 11.073-44.636 46.58-44.636H425.6v-70.34s-32.71-5.582-63.982-5.582c-65.288.0-107.96 39.569-107.96 111.204v62.971h-72.573v82.621h72.573V512h-191.104c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892z"/></svg>
+</a>
+<a target=_blank rel="noopener noreferrer" aria-label="share Generating images with AI on whatsapp" href="https://api.whatsapp.com/send?text=Generating%20images%20with%20AI%20-%20https%3a%2f%2fludentes.ru%2fposts%2fimage-generation%2f"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zm-58.673 127.703c-33.842-33.881-78.847-52.548-126.798-52.568-98.799.0-179.21 80.405-179.249 179.234-.013 31.593 8.241 62.428 23.927 89.612l-25.429 92.884 95.021-24.925c26.181 14.28 55.659 21.807 85.658 21.816h.074c98.789.0 179.206-80.413 179.247-179.243.018-47.895-18.61-92.93-52.451-126.81zM263.976 403.485h-.06c-26.734-.01-52.954-7.193-75.828-20.767l-5.441-3.229-56.386 14.792 15.05-54.977-3.542-5.637c-14.913-23.72-22.791-51.136-22.779-79.287.033-82.142 66.867-148.971 149.046-148.971 39.793.014 77.199 15.531 105.329 43.692 28.128 28.16 43.609 65.592 43.594 105.4-.034 82.149-66.866 148.983-148.983 148.984zm81.721-111.581c-4.479-2.242-26.499-13.075-30.604-14.571-4.105-1.495-7.091-2.241-10.077 2.241-2.986 4.483-11.569 14.572-14.182 17.562-2.612 2.988-5.225 3.364-9.703 1.12-4.479-2.241-18.91-6.97-36.017-22.23C231.8 264.15 222.81 249.484 220.198 245s-.279-6.908 1.963-9.14c2.016-2.007 4.48-5.232 6.719-7.847 2.24-2.615 2.986-4.484 4.479-7.472 1.493-2.99.747-5.604-.374-7.846-1.119-2.241-10.077-24.288-13.809-33.256-3.635-8.733-7.327-7.55-10.077-7.688-2.609-.13-5.598-.158-8.583-.158-2.986.0-7.839 1.121-11.944 5.604-4.105 4.484-15.675 15.32-15.675 37.364.0 22.046 16.048 43.342 18.287 46.332 2.24 2.99 31.582 48.227 76.511 67.627 10.685 4.615 19.028 7.371 25.533 9.434 10.728 3.41 20.492 2.929 28.209 1.775 8.605-1.285 26.499-10.833 30.231-21.295 3.732-10.464 3.732-19.431 2.612-21.298-1.119-1.869-4.105-2.99-8.583-5.232z"/></svg>
+</a>
+<a target=_blank rel="noopener noreferrer" aria-label="share Generating images with AI on telegram" href="https://telegram.me/share/url?text=Generating%20images%20with%20AI&url=https%3a%2f%2fludentes.ru%2fposts%2fimage-generation%2f"><svg viewBox="2 2 28 28"><path d="M26.49 29.86H5.5a3.37 3.37.0 01-2.47-1 3.35 3.35.0 01-1-2.47V5.48A3.36 3.36.0 013 3 3.37 3.37.0 015.5 2h21A3.38 3.38.0 0129 3a3.36 3.36.0 011 2.46V26.37a3.35 3.35.0 01-1 2.47 3.38 3.38.0 01-2.51 1.02zm-5.38-6.71a.79.79.0 00.85-.66L24.73 9.24a.55.55.0 00-.18-.46.62.62.0 00-.41-.17q-.08.0-16.53 6.11a.59.59.0 00-.41.59.57.57.0 00.43.52l4 1.24 1.61 4.83a.62.62.0 00.63.43.56.56.0 00.4-.17L16.54 20l4.09 3A.9.9.0 0021.11 23.15zM13.8 20.71l-1.21-4q8.72-5.55 8.78-5.55c.15.0.23.0.23.16a.18.18.0 010 .06s-2.51 2.3-7.52 6.8z"/></svg>
+</a>
+</div>
+</footer><div id=disqus_thread></div>
+<script>(function(){var a=document,b=a.createElement('script');b.src='https://ludentes-ru-1.disqus.com/embed.js',b.setAttribute('data-timestamp',+new Date),(a.head||a.body).appendChild(b)})()</script>
+<noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript>
+</article>
+</main>
+<footer class=footer>
+<span>&copy; 2021 <a href=https://ludentes.ru/>Closing the Tabs</a></span>
+<span>
+Powered by
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
+        <a href=https://git.io/hugopapermod rel=noopener target=_blank>PaperMod</a>
+</span>
+</footer>
+<a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
+</a>
+<script>let menu=document.getElementById('menu');menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener("click",function(b){b.preventDefault();var a=this.getAttribute("href").substr(1);window.matchMedia('(prefers-reduced-motion: reduce)').matches?document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView({behavior:"smooth"}),a==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${a}`)})})</script>
+<script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script>
+<script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove('dark'),localStorage.setItem("pref-theme",'light')):(document.body.classList.add('dark'),localStorage.setItem("pref-theme",'dark'))})</script>
+</body>
+</html>

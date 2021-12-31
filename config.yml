@@ -1,7 +1,9 @@
 baseURL: "https://ludentes.ru/"
 title: Closing the Tabs
 paginate: 5
-theme: PaperModLocal
+theme: 
+     - PaperModLocal
+     - hugo-shortcode-gallery
 
 enableRobotsTXT: true
 buildDrafts: false

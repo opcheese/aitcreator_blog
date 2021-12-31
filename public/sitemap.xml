@@ -2,20 +2,41 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://ludentes.ru/tags/ai-tools/</loc>
+    <lastmod>2021-12-30T11:30:03+00:00</lastmod>
+  </url><url>
     <loc>https://ludentes.ru/</loc>
-    <lastmod>2020-09-15T11:30:03+00:00</lastmod>
+    <lastmod>2021-12-30T11:30:03+00:00</lastmod>
   </url><url>
-    <loc>https://ludentes.ru/tags/first/</loc>
-    <lastmod>2020-09-15T11:30:03+00:00</lastmod>
-  </url><url>
-    <loc>https://ludentes.ru/posts/page/</loc>
-    <lastmod>2020-09-15T11:30:03+00:00</lastmod>
+    <loc>https://ludentes.ru/posts/image-generation/</loc>
+    <lastmod>2021-12-30T11:30:03+00:00</lastmod>
   </url><url>
     <loc>https://ludentes.ru/posts/</loc>
-    <lastmod>2020-09-15T11:30:03+00:00</lastmod>
+    <lastmod>2021-12-30T11:30:03+00:00</lastmod>
   </url><url>
     <loc>https://ludentes.ru/tags/</loc>
-    <lastmod>2020-09-15T11:30:03+00:00</lastmod>
+    <lastmod>2021-12-30T11:30:03+00:00</lastmod>
+  </url><url>
+    <loc>https://ludentes.ru/posts/colorizing-old-photos/</loc>
+    <lastmod>2021-11-20T11:30:03+00:00</lastmod>
+  </url><url>
+    <loc>https://ludentes.ru/tags/data-analysis/</loc>
+    <lastmod>2021-11-20T11:30:03+00:00</lastmod>
+  </url><url>
+    <loc>https://ludentes.ru/tags/image-generation/</loc>
+    <lastmod>2021-11-20T11:30:03+00:00</lastmod>
+  </url><url>
+    <loc>https://ludentes.ru/tags/stylegan/</loc>
+    <lastmod>2021-11-20T11:30:03+00:00</lastmod>
+  </url><url>
+    <loc>https://ludentes.ru/posts/vamp-interface/</loc>
+    <lastmod>2021-11-17T11:30:03+00:00</lastmod>
+  </url><url>
+    <loc>https://ludentes.ru/tags/blog/</loc>
+    <lastmod>2021-11-01T11:30:03+00:00</lastmod>
+  </url><url>
+    <loc>https://ludentes.ru/posts/closing-tabs/</loc>
+    <lastmod>2021-11-01T11:30:03+00:00</lastmod>
   </url><url>
     <loc>https://ludentes.ru/archives/</loc>
   </url><url>
